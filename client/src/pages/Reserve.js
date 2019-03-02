@@ -9,10 +9,10 @@ export default class Reserve extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      customerName: '',
-      customerId: '',
-      phone: '',
+      firstName: '',
+      lastName: '',
       email: '',
+      password: '',
       redirect: false
     }
   }
@@ -26,12 +26,12 @@ export default class Reserve extends React.Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-    if (this.state.customerName && this.state.customerId) {
-      API.saveTable({
-        customerName: this.state.customerName,
-        customerID: this.state.customerId,
-        phoneNumber: this.state.phone,
-        customerEmail: this.state.email
+    if (this.state.firstName && this.state.lastName) {
+      API.userSignUp({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        password: this.state.password
       })
         .then(() => {
           this.setState({ redirect: true })
@@ -71,21 +71,21 @@ export default class Reserve extends React.Component {
                 <div className='card-body'>
                   <form>
                     <div className='form-group'>
-                      <label for='reserve-name'>Name</label>
+                      <label for='reserve-name'>First Name</label>
                       <Input
-                        value={this.state.customerName}
+                        value={this.state.firstName}
                         onChange={this.handleInputChange}
-                        name='customerName'
-                        placeholder='Customer Name...'
+                        name='firstName'
+                        placeholder='First Name...'
                       />
                     </div>
                     <div className='form-group'>
-                      <label for='reserve-phone'>Phone Number</label>
+                      <label for='reserve-phone'>Last Name</label>
                       <Input
-                        value={this.state.phone}
+                        value={this.state.lastName}
                         onChange={this.handleInputChange}
-                        name='phone'
-                        placeholder='Phone Number...'
+                        name='lastName'
+                        placeholder='Last Name...'
                       />
                     </div>
                     <div className='form-group'>
@@ -98,17 +98,17 @@ export default class Reserve extends React.Component {
                       />
                     </div>
                     <div className='form-group'>
-                      <label for='reserve-unique-id'>Unique ID</label>
+                      <label for='reserve-unique-id'>Password</label>
                       <Input
-                        value={this.state.customerId}
+                        value={this.state.password}
                         onChange={this.handleInputChange}
-                        name='customerId'
-                        placeholder='Customer ID...'
+                        name='password'
+                        placeholder='Password...'
                       />
                     </div>
                     <FormBtn
                       disabled={
-                        !(this.state.customerId && this.state.customerName)
+                        !(this.state.firstName && this.state.lastName)
                       }
                       onClick={this.handleFormSubmit}
                     >
