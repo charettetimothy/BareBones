@@ -16,9 +16,14 @@ export default class Home extends React.Component {
                 <span className='fa fa-list-alt' /> View Broth
               </button>
             </a>
-            <a href='/reserve'>
+            <a href='/login'>
               <button className='btn btn-lg btn-danger'>
                 <span className='fa fa-credit-card' /> Log In
+              </button>
+            </a>
+            <a href='/signup'>
+              <button className='btn btn-lg btn-danger'>
+                <span className='fa fa-credit-card' /> Sign Up
               </button>
             </a>
           </div>

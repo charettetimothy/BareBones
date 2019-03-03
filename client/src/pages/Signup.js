@@ -5,7 +5,7 @@ import { Input, FormBtn } from '../components/form'
 import { Redirect } from 'react-router-dom'
 import API from '../api/API'
 
-export default class Reserve extends React.Component {
+export default class Signup extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
