@@ -6,6 +6,7 @@
 //get to logout
 const router = require('express').Router()
 var db = require("../../models");
+var passport = require("../../config/passport");
  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
@@ -27,6 +28,13 @@ var db = require("../../models");
         // res.status(422).json(err.errors[0].message);
       });
 
+  });
+
+  router.post("/login", passport.authenticate("local"), function(req, res) {
+    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+    // So we're sending the user back the route to the member's log page because the redirect will happen on the front end
+    // They won't get this or even be able to access this page if they aren't authed
+    res.redirect('/');
   });
 
   // Route for logging user out
