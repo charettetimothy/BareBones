@@ -6,6 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 3001
 var db = require("./models")
 var passport = require("./config/passport.js");
+const stripe = require("stripe")(process.env.STRIPESECRET);
 // Define middleware here
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === 'production') {
 // Add routes, both API and view
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(require("body-parser").text());
 app.use(routes)
 
 
