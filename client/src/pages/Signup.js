@@ -50,7 +50,7 @@ export default class Signup extends React.Component {
     } else {
       return (
         <Container>
-          <Jumbotron headerName='Broth Boyeee' lead='Choose your broth baby!'>
+          {/* <Jumbotron headerName='Broth Boyeee' lead='Choose your broth baby!'>
             <div className='text-center'>
               <a href='/tables'>
                 <button className='btn btn-lg btn-primary'>
@@ -63,11 +63,11 @@ export default class Signup extends React.Component {
                 </button>
               </a>
             </div>
-          </Jumbotron>
+          </Jumbotron> */}
           <div className='row'>
             <div className='col-lg-12'>
               <div className='card'>
-                <div className='card-header'>Table Reservation</div>
+                <div className='card-header'>Create your account</div>
                 <div className='card-body'>
                   <form>
                     <div className='form-group'>
@@ -112,7 +112,7 @@ export default class Signup extends React.Component {
                       }
                       onClick={this.handleFormSubmit}
                     >
-                      Submit Book
+                      Submit
                     </FormBtn>
                   </form>
                 </div>

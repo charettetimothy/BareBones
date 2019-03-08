@@ -51,7 +51,7 @@ export default class Login extends React.Component {
     } else {
       return (
         <Container>
-          <Jumbotron headerName="Broth Boyeee" lead="Choose your broth baby!">
+          {/* <Jumbotron headerName="Broth Boyeee" lead="Choose your broth baby!">
             <div className="text-center">
               <a href="/tables">
                 <button className="btn btn-lg btn-primary">
@@ -64,7 +64,7 @@ export default class Login extends React.Component {
                 </button>
               </a>
             </div>
-          </Jumbotron>
+          </Jumbotron> */}
           <div className="row">
             <div className="col-lg-12">
               <div className="card">
