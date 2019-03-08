@@ -10,15 +10,29 @@ import "./App.css";
 import Topnav from "./components/navbar";
 
 class App extends Component {
+  // cant pass 
+  state = {
+    user: {
+      firstName: "",
+      lastName: "",
+      email: ""
+    }  
+  }
+
+  isAuthenticated = (objectFromLoginPage) => {
+    console.log(objectFromLoginPage)
+    this.setState({user: objectFromLoginPage})
+  }
+
   render() {
     return (
       <Router>
         <div>
           <Topnav />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={(props)=> <Home {...props} userData={this.state.user} />} />
             <Route exact path="/tables" component={Tables} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" render={(props)=> <Login {...props} handleAuth={this.isAuthenticated} />} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/stripe" component={Stripe} />
             <Route component={NoMatch} />

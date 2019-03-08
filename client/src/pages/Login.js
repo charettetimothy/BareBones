@@ -12,7 +12,8 @@ export default class Login extends React.Component {
     this.state = {
       email: "",
       password: "",
-      redirect: false
+      redirect: false,
+      error: ""
     };
   }
 
@@ -30,10 +31,13 @@ export default class Login extends React.Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then(() => {
-          this.setState({ redirect: true });
+        .then((response) => {
+          console.log(response)
+          this.setState({ redirect: true })
+          this.props.handleAuth({firstName: response.data.firstName, lastName: response.data.lastName, email: response.data.email})
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err, err.status));
+        
     }
   };
 
