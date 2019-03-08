@@ -1,9 +1,26 @@
 import React from 'react'
 import { Container } from '../components/grid'
 import { Jumbotron } from '../components/container'
+import Image from '../components/images'
+
+const pictures = [
+  "./imgs/cassette.png",
+  "./imgs/diamond.jpg",
+  "./imgs/favicon.png",
+  "./imgs/fitness.jpg", 
+  "./imgs/friends.jpg",
+  "./imgs/hamburger.png",
+  "./imgs/hourglass.jpg",
+  "./imgs/ignasi_pattern_s.png",
+  "./imgs/movie.jpg",
+  "./imgs/shop.jpg",
+  "./imgs/third-eye.jpg",
+  "./imgs/train.jpg"
+]
 
 export default class Home extends React.Component {
   render () {
+
     return (
       <Container>
         <Jumbotron
@@ -26,6 +43,10 @@ export default class Home extends React.Component {
                 <span className='fa fa-credit-card' /> Sign Up
               </button>
             </a>
+            <div>
+            {pictures.map(picture => <Image key={picture} src={picture} handleClick={this.handleClick} alt="casette"></Image> )} 
+            </div>
+
           </div>
         </Jumbotron>
       </Container>

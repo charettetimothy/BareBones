@@ -38,7 +38,7 @@ export default class Login extends React.Component {
   };
 
   _renderRedirect = () => {
-    return <Redirect to="/tables" />;
+    return <Redirect to="/" />;
   };
 
   render() {
