@@ -8,7 +8,7 @@ import Signup from "./pages/Signup";
 import Stripe from "./pages/Stripe";
 import "./App.css";
 import Topnav from "./components/navbar";
-import About from './pages/About'
+import Products from './pages/Products'
 
 class App extends Component {
   // cant pass 
@@ -36,7 +36,7 @@ class App extends Component {
             <Route exact path="/login" render={(props)=> <Login {...props} handleAuth={this.isAuthenticated} />} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/cart" component={Stripe} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/products" component={Products} />
             <Route component={NoMatch} />
           </Switch>
         </div>
