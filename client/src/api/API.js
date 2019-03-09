@@ -16,5 +16,8 @@ export default {
   userLogin: function (Users) {
     console.log(Users + "this is api.js")
   return axios.post('/api/authRoutes/login', Users)
+  },
+  userProducts: function () {
+    return axios.get('/api/products/')
   }
 }

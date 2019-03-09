@@ -9,7 +9,7 @@ import Stripe from "./pages/Stripe";
 import "./App.css";
 import Topnav from "./components/navbar";
 import Products from './pages/Products'
-
+// !user sees these routes
 class App extends Component {
   // cant pass 
   state = {
@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Topnav />
+          <Topnav userData={this.state.user} />
           <Switch>
             <Route exact path="/" render={(props)=> <Home {...props} userData={this.state.user} />} />
             {/* <Route exact path="/tables" component={Tables} /> */}

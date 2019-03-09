@@ -3,9 +3,9 @@ const router = require('express').Router()
 const productRoutes = require('./products')
 const authRoutes = require('./authRoutes')
 const stripeRoutes = require('./stripeRoutes')
-// Book routes
-// router.use('/tables', tablesRoutes)
-router.use('/api/products', productRoutes)
+// this is localhost3001
+// user never sees these, 
+router.use('/products', productRoutes)
 router.use('/authRoutes', authRoutes)
 router.use('/stripeRoutes', stripeRoutes)
 // when dealing with data its usually an api route

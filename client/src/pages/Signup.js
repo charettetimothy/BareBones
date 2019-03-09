@@ -41,7 +41,7 @@ export default class Signup extends React.Component {
   }
 
   _renderRedirect = () => {
-    return <Redirect to='/tables' />
+    return <Redirect to='/products' />
   }
 
   render () {
