@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container } from '../components/grid'
-import { Jumbotron } from '../components/container'
 import { Input, FormBtn } from '../components/form'
 import { Redirect } from 'react-router-dom'
 import API from '../api/API'
@@ -50,20 +49,6 @@ export default class Signup extends React.Component {
     } else {
       return (
         <Container>
-          {/* <Jumbotron headerName='Broth Boyeee' lead='Choose your broth baby!'>
-            <div className='text-center'>
-              <a href='/tables'>
-                <button className='btn btn-lg btn-primary'>
-                  <span className='fa fa-list-alt' /> View Tables
-                </button>
-              </a>
-              <a href='/'>
-                <button className='btn btn-lg btn-default'>
-                  <span className='fa fa-home' />
-                </button>
-              </a>
-            </div>
-          </Jumbotron> */}
           <div className='row'>
             <div className='col-lg-12'>
               <div className='card'>

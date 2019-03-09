@@ -1,16 +1,9 @@
 const router = require("express").Router();
 var db = require("../../models");
 
-// Matches with "/api/tables"
-// router.route('/').get(function (req, res) {
-//   // !make call to db using sql
-//   // respond to front end with dbData
-
-// })
-
 router.get("/", function(req, res) {
   db.Products.findAll({}).then((response) => {
-    console.log(response);
+    // console.log(response);
     res.json(response)
   });
 

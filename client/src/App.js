@@ -32,7 +32,6 @@ class App extends Component {
           <Topnav userData={this.state.user} />
           <Switch>
             <Route exact path="/" render={(props)=> <Home {...props} userData={this.state.user} />} />
-            {/* <Route exact path="/tables" component={Tables} /> */}
             <Route exact path="/login" render={(props)=> <Login {...props} handleAuth={this.isAuthenticated} />} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/cart" component={Stripe} />

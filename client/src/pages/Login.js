@@ -32,7 +32,7 @@ export default class Login extends React.Component {
         password: this.state.password
       })
         .then((response) => {
-          console.log(response)
+          // console.log(response)
           this.setState({ redirect: true })
           this.props.handleAuth({firstName: response.data.firstName, lastName: response.data.lastName, email: response.data.email})
         })

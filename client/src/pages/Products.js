@@ -6,40 +6,36 @@ import Button from "react-bootstrap/Button";
 import API from "../api/API";
 
 class Products extends Component {
+
   state = {
     Products: []
   };
 
+// after the page loads component did mount is used to get data
   componentDidMount = () => {
     this.getProducts();
   };
+
+// call to database to get the products, store in const and setstate
   getProducts = () => {
     API.userProducts()
       .then(response => {
-        // cons?ole.log(response)
         const productListArray = response.data;
         this.setState({ Products: productListArray });
-        // this.setState({ redirect: true })
-        // this.props.handleAuth({firstName: response.data.firstName, lastName: response.data.lastName, email: response.data.email})
       })
       .catch(err => console.log(err, err.status));
   };
-  // create component did mount
-  // in cdm axios req to api (route that i make in backend routes folder)
-  // update state with info from database
-  // create an api route on backend
-  //
+  
   render() {
     return (
       <div>
         <Container>
           <Jumbotron headerName="About our broths" lead="" />
         </Container>
-
+        <Container>
         <div>
           {/* !curleys after product allows us to add variables. makes it an explicit return! */}
           {this.state.Products.map(product => {
-            console.log(product) 
             return (
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={product.imgUrl} />
@@ -48,12 +44,13 @@ class Products extends Component {
                   <Card.Text>
                     {product.description}
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="primary">Add to cart.</Button>
                 </Card.Body>
               </Card>
             );
           })}
         </div>
+        </Container>
       </div>
     );
   }

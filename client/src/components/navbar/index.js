@@ -19,7 +19,7 @@ class Topnav extends Component {
             <Nav.Link href="/signup">Sign Up</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
-            <div>{this.props.userData.firstName}</div>
+            <Nav.Link href="/cart">Welcome {this.props.userData.firstName} {this.props.userData.lastName}</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
