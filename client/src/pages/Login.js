@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "../components/grid";
-import { Jumbotron } from "../components/container";
 import { Input, FormBtn } from "../components/form";
 import { Redirect } from "react-router-dom";
 import API from "../api/API";
@@ -31,13 +30,15 @@ export default class Login extends React.Component {
         email: this.state.email,
         password: this.state.password
       })
-        .then((response) => {
-          // console.log(response)
-          this.setState({ redirect: true })
-          this.props.handleAuth({firstName: response.data.firstName, lastName: response.data.lastName, email: response.data.email})
+        .then(response => {
+          this.setState({ redirect: true });
+          this.props.handleAuth({
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+            email: response.data.email
+          });
         })
         .catch(err => console.log(err, err.status));
-        
     }
   };
 
@@ -51,20 +52,6 @@ export default class Login extends React.Component {
     } else {
       return (
         <Container>
-          {/* <Jumbotron headerName="Broth Boyeee" lead="Choose your broth baby!">
-            <div className="text-center">
-              <a href="/tables">
-                <button className="btn btn-lg btn-primary">
-                  <span className="fa fa-list-alt" /> View Tables
-                </button>
-              </a>
-              <a href="/">
-                <button className="btn btn-lg btn-default">
-                  <span className="fa fa-home" />
-                </button>
-              </a>
-            </div>
-          </Jumbotron> */}
           <div className="row">
             <div className="col-lg-12">
               <div className="card">
@@ -83,13 +70,6 @@ export default class Login extends React.Component {
                     </div>
                     <div className="form-group">
                       <label for="reserve-unique-id">Password</label>
-                      {/* <Input
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name='password'
-                        placeholder='Password...'
-                      /> */}
                       <PasswordMask
                         inputClassName="form-control"
                         id="password"

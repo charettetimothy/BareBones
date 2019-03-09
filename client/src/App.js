@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   isAuthenticated = (objectFromLoginPage) => {
-    console.log(objectFromLoginPage)
     this.setState({user: objectFromLoginPage})
   }
 
