@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3001
 var db = require("./models")
 var passport = require("./config/passport.js");
 const stripe = require("stripe")(process.env.STRIPESECRET);
+var mysql = require("mysql");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
