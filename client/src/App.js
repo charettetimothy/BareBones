@@ -25,9 +25,9 @@ class App extends Component {
     this.setState({ user: objectFromLoginPage });
   };
 
-  addToCart = (product) => {
-    this.setState({cart: product})
-  }
+  addToCart = product => {
+    this.setState({ cart: product });
+  };
 
   render() {
     return (
@@ -35,21 +35,11 @@ class App extends Component {
         <div>
           <Topnav userData={this.state.user} />
           <Switch>
-            <Route
-              exact
-              path="/"
-              render={props => <Home {...props} userData={this.state.user} />}
-            />
-            <Route
-              exact
-              path="/login"
-              render={props => (
-                <Login {...props} handleAuth={this.isAuthenticated} />
-              )}
-            />
+            <Route exact path="/" render={props => <Home {...props} userData={this.state.user} />}/>
+            <Route exact path="/login" render={props => (<Login {...props} handleAuth={this.isAuthenticated} />)}/>
             <Route exact path="/signup" component={Signup} />
-              <Route exact path="/cart" render={props => <Stripe {...props} />} /> 
-            <Route exact path="/products" render={props => <Products {...props} addToCart={this.addToCart}/>} />
+            <Route exact path="/cart" render={props => <Stripe {...props} />} />
+            <Route exact path="/products" render={props => (<Products {...props} addToCart={this.addToCart} />)}/>
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -36,25 +36,8 @@ router.post("/login", passport.authenticate("local"), function(req, res) {
 // Route for logging user out
   router.get("/logout", function(req, res) {
     req.logout();
-    res.redirect("/");
+    res.json("logged out")
+    // res.redirect("/");
   });
-
-//   // Route for getting some data about our user to be used client side
-//   app.get("/api/user_data", function(req, res) {
-//     // The user is not logged in, send back an empty object
-//     if (!req.user) {
-//       res.json({});
-//     } else {
-//       res.json({
-//         id: req.user.id,
-//         firstName: req.user.firstName,
-//         lastName: req.user.lastName,
-//         email: req.user.email,
-//         imgUrl: req.user.imgUrl,
-//         createdAt: req.user.createdAt,
-//         updatedAt: req.user.updatedAt
-//       });
-//     }
-//   });
 
 module.exports = router;

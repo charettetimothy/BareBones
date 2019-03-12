@@ -42,7 +42,7 @@ class Products extends Component {
           {/* !curleys after product allows us to add variables. makes it an explicit return! */}
           {this.state.Products.map(product => {
             return (
-              <Card style={{ width: "18rem" }}>
+              <Card key={product.id} style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={product.imgUrl} />
                 <Card.Body>
                   <Card.Title>{product.productName}</Card.Title>
