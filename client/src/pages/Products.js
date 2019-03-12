@@ -25,6 +25,11 @@ class Products extends Component {
       })
       .catch(err => console.log(err, err.status));
   };
+
+  handleCLickEvent = () => {
+    this.props.addToCart("product")
+    
+  }
   
   render() {
     return (
@@ -44,7 +49,7 @@ class Products extends Component {
                   <Card.Text>
                     {product.description}
                   </Card.Text>
-                  <Button variant="primary">Add to cart.</Button>
+                  <Button variant="primary" onClick={this.handleCLickEvent}>Add to cart.</Button>
                 </Card.Body>
               </Card>
             );

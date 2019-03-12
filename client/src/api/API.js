@@ -17,5 +17,8 @@ export default {
   },
   userProducts: function () {
     return axios.get('/api/products/')
+  },
+  logout: function () {
+    return axios.get('/api/authRoutes/logout')
   }
 }

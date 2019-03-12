@@ -32,6 +32,7 @@ export default class Login extends React.Component {
       })
         .then(response => {
           this.setState({ redirect: true });
+          localStorage.setItem("name", response.data.firstName)
           this.props.handleAuth({
             firstName: response.data.firstName,
             lastName: response.data.lastName,

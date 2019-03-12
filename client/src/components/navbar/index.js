@@ -1,8 +1,30 @@
-import React, { Component } from 'react'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import React, { Component } from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import API from "../../api/API";
+import { Redirect } from "react-router-dom";
 class Topnav extends Component {
+  state = {
+    redirect: false
+  };
+  handleLogout = () => {
+    API.logout();
+    localStorage.removeItem("name");
+    this.setState({ redirect: true });
+    this.setState({ redirect: false });
+  };
+  _renderRedirect = () => {
+    return <Redirect to="/" />;
+  };
+
   render() {
+    if (this.state.redirect) {
+      return this._renderRedirect();
+    }
+    let name;
+    if (localStorage.hasOwnProperty("name")) {
+      name = localStorage.getItem("name");
+    }
     return (
       <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Bare Bones</Navbar.Brand>
@@ -14,7 +36,8 @@ class Topnav extends Component {
             <Nav.Link href="/signup">Sign Up</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
-            <Nav.Link href="/cart">Welcome {this.props.userData.firstName} {this.props.userData.lastName}</Nav.Link>
+            <Nav.Link href="/cart">Welcome {name} </Nav.Link>
+            <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -22,4 +45,4 @@ class Topnav extends Component {
   }
 }
 
-export default Topnav
+export default Topnav;
