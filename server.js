@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3001
 var db = require("./models")
 var passport = require("./config/passport.js");
 const stripe = require("stripe")(process.env.STRIPESECRET);
-var mysql = require("mysql");
+// var mysql = require("mysql");
 // Define middleware here
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -13,16 +13,16 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 }
-if (process.env.JAWSDB_URL) {
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-} else {
-  connection = mysql.createConnection({
-    host: 'muowdopceqgxjn2b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'g5abz2zhkr8jogv0',
-    password: 'ru69102afx1l9akt',
-    database: 'oh4v074oxt5i9wen'
-  })
-}
+// if (process.env.JAWSDB_URL) {
+//   connection = mysql.createConnection(process.env.JAWSDB_URL);
+// } else {
+//   connection = mysql.createConnection({
+//     host: 'muowdopceqgxjn2b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+//     user: 'g5abz2zhkr8jogv0',
+//     password: 'ru69102afx1l9akt',
+//     database: 'oh4v074oxt5i9wen'
+//   })
+// }
 // Add routes
 app.use(passport.initialize());
 app.use(passport.session());
